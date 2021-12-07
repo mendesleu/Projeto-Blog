@@ -2,4 +2,4 @@
 
 E um projeto de estudos, para estudar as principais linguagens de programação da web, aqui veremos HTML/CSS, JavaScript e PHP.
 
-Fiquem avontade para ver como ele foi programado.
+Fiquem a vontade para ver como ele foi programado.
