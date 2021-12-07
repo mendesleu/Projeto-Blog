@@ -1,0 +1,45 @@
+.container-cards{
+    width: 600px;
+    height: 150px;
+
+    display: flex;
+
+    box-shadow: 1px 1px 10px 0px black;
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+.photo{
+    background-color: rgb(48, 48, 48);
+    width: 200px;
+
+    height: 150px;
+    border-radius: 10px 0 0 10px;
+}
+
+.container-cards-description{
+    width: 390px;
+    margin-left: 10px;
+}
+
+.cards-title{
+    width: 100%;
+    height: 70px;
+
+    text-align: justify;
+
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.cards-description{
+    width: 100%;
+    height: 80px;
+
+    font-size: 10pt;
+    text-align: justify;
+
+    padding-right: 10px;
+    padding-top: 5px;
+}
