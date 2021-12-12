@@ -9,10 +9,11 @@
 
     if($query == true){
         // echo "Categoria Gravada com sucesso";
-        header("Location: ../category.php?white=ok");
+        header("Location: ../category.php?white=true");
     }else{
-        echo "Erro ao gravar categoria";
-        echo $conn -> error;
+        // echo "Erro ao gravar categoria";
+        // echo $conn -> error;
+        header("Location: ../category.php?white=false");
     }
 
     mysqli_close($conn);
