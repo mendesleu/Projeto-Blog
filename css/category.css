@@ -1,0 +1,52 @@
+#register-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    margin-top: 30px;
+}
+
+#input{
+    border: 1px solid rgba(0, 0, 0, 0.322);
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+#button{
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+#button:hover{
+    background-color: rgb(27, 27, 27);
+}
+
+#container-list{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cat-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.separate-cat{
+    width: 600px;
+    font-size: 10pt;
+}
+
+.line{
+    background-color: rgba(0, 0, 0, 0.281);
+    width: 850px;
+    height: 1px;
+}
