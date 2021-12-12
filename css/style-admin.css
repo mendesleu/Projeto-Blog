@@ -90,6 +90,7 @@ main{
 
 .name-separate{
     width: 800px;
+    font-size: 10pt;
 }
 
 .icon-separate{
@@ -97,6 +98,13 @@ main{
     display: flex;
     justify-content: center;
     text-align: center;
+    font-size: 10pt;
+}
+
+.line2{
+    background-color: rgba(0, 0, 0, 0.281);
+    width: 1100px;
+    height: 1px;
 }
 /* Main ============================================================================= */
 
