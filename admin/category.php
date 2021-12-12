@@ -8,7 +8,7 @@
     $query = mysqli_query($conn, $delete);
 
     if($query == true){
-        header("Location: category.php");
+        header("Location: category.php?status=del");
     }
 ?>
 

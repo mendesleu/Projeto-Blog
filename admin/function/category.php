@@ -26,10 +26,13 @@
         $category = $_POST['category'];
         $id = $_GET['id'];
 
-        $update = "UPDATE category SET category=$category WHERE id=$id";
+        $update = "UPDATE category SET category='$category' WHERE id=$id";
         $query = mysqli_query($conn, $update);
 
         if($query == true){
             header("Location: ../category.php?status=update");
+        }else{
+            echo "Ouve um erro na alteração!";
+            echo $conn -> error;
         }
     }

@@ -27,6 +27,15 @@
                 </div>
                 ";
             break;
+        
+        case "del":
+            echo "
+                <input type='checkbox' id='check'>
+                <div id='box-warning-del'>
+                    <label for='check'>Categoria deletada com sucesso! <strong>Fechar</strong></label>
+                </div>
+                ";
+            break;
     }
 
 ?>

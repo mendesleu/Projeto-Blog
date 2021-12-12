@@ -142,6 +142,16 @@ main{
     padding-left: 10px;
 }
 
+#box-warning-del{
+    background-color: rgba(5, 238, 75, 0.412);
+    width: 100%;
+    height: 50px;
+    
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
 #check:checked ~ #box-warning{
     display: none;
 }
