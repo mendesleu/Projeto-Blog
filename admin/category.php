@@ -29,44 +29,11 @@
     <!--Box Confirm White =============================================================================-->
     <?php
 
-        $status = isset($_GET['status']);
+        $status = isset($_GET['status'])?$_GET['status']:"";
 
-        if($status == "true"){
-    ?>
-        <!--Box ok ====================================================================================-->
-        <input type="checkbox" id="check">
-        <div id="box-warning">
-            <label for="check">Categoria gravada com sucesso! <strong>Fechar</strong></label>
-        </div>
-        <!--Box ok ====================================================================================-->
-    <?php
-    echo $status;
-        }else{
-            if($status == "false"){
+        include "function/status-category.php";
+
     ?> 
-                <!--Box False ==========================================================================-->
-                <input type="checkbox" id="check">
-                <div id="box-warning-error">
-                    <label for="check">Erro ao gravar categoria! <strong>Fechar</strong></label>
-                </div>
-                <!--Box False ==========================================================================-->
-    <?php
-            }
-        }
-
-        if($status == "update"){
-    ?>
-        
-            <!--Update ==============================================================================-->
-            <input type="checkbox" id="check">
-            <div id="box-warning-error">
-                <label for="check">Categoria alterada com sucesso! <strong>Fechar</strong></label>
-            </div>
-            <!--Upfdate=== ==========================================================================-->
-    <?php
-        }
-
-    ?>    
     <!--Box Confirm White =============================================================================-->
 
     <!--Header ========================================================================================-->
