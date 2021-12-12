@@ -15,15 +15,7 @@
 </body>
 
     <!--Header ========================================================================================-->
-    <header id="top">
-        <nav>
-            <ul>
-                <li><a href="">Postagens</a></li>
-                <li><a href="">User</a></li>
-                <li><a href="">Categoria</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "menu.php"; ?>
     <!--Header ========================================================================================-->
     
     <!--Main ==========================================================================================-->
@@ -55,7 +47,7 @@
                         <option value="saude">Saude</option>
                     </select>
                     
-                    <textarea name="postagem"></textarea>
+                    <textarea name="post"></textarea>
 
                     <input type="submit" value="Cadastrar" id="button">
                     
