@@ -2,20 +2,34 @@
 
     require_once "conn.php";
 
-    $category = $_POST['category'];
+    $func = isset($_GET['func'])?$_GET['func']:"";
 
-    $insert = "INSERT INTO category (category) VALUE ('$category')";
-    $query = mysqli_query($conn, $insert);
+    if($func == "insert"){
 
-    if($query == true){
-        // echo "Categoria Gravada com sucesso";
-        header("Location: ../category.php?white=true");
-    }else{
-        // echo "Erro ao gravar categoria";
-        // echo $conn -> error;
-        header("Location: ../category.php?white=false");
+        $category = $_POST['category'];
+        
+        $insert = "INSERT INTO category (category) VALUE ('$category')";
+        $query = mysqli_query($conn, $insert);
+        
+        if($query == true){
+            // echo "Categoria Gravada com sucesso";
+            header("Location: ../category.php?status=true");
+        }else{
+            // echo "Erro ao gravar categoria";
+            // echo $conn -> error;
+            header("Location: ../category.php?status=false");
+        }
     }
 
-    mysqli_close($conn);
+    if($func == "update"){
 
-?>
+        $category = $_POST['category'];
+        $id = $_GET['id'];
+
+        $update = "UPDATE category SET category=$category WHERE id=$id";
+        $query = mysqli_query($conn, $update);
+
+        if($query == true){
+            header("Location: ../category.php?status=update");
+        }
+    }

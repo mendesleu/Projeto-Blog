@@ -3,7 +3,7 @@
     require_once "function/conn.php";
 
     $delete = isset($_GET['delete'])?$_GET['delete']:"";
-    echo $delete;
+    
     $delete = "DELETE FROM category WHERE id=$delete";
     $query = mysqli_query($conn, $delete);
 
@@ -29,9 +29,9 @@
     <!--Box Confirm White =============================================================================-->
     <?php
 
-        $white = isset($_GET['white']);
+        $status = isset($_GET['status']);
 
-        if($white == "true"){
+        if($status == "true"){
     ?>
         <!--Box ok ====================================================================================-->
         <input type="checkbox" id="check">
@@ -40,8 +40,9 @@
         </div>
         <!--Box ok ====================================================================================-->
     <?php
+    echo $status;
         }else{
-            if($white == "false"){
+            if($status == "false"){
     ?> 
                 <!--Box False ==========================================================================-->
                 <input type="checkbox" id="check">
@@ -52,6 +53,19 @@
     <?php
             }
         }
+
+        if($status == "update"){
+    ?>
+        
+            <!--Update ==============================================================================-->
+            <input type="checkbox" id="check">
+            <div id="box-warning-error">
+                <label for="check">Categoria alterada com sucesso! <strong>Fechar</strong></label>
+            </div>
+            <!--Upfdate=== ==========================================================================-->
+    <?php
+        }
+
     ?>    
     <!--Box Confirm White =============================================================================-->
 
@@ -67,15 +81,42 @@
             
             <!--Register Area =========================================================================-->
             <div id="register-area">
-                
-                <!--Form ==============================================================================-->
-                <form method="post" action="function/category.php">
+            
+                <!--Insert And Update =================================================================-->
+                <?php
+
+                    $update = isset($_GET['update'])?$_GET['update']:"";
+                    $id = isset($_GET['id'])?$_GET['id']:"";
+
+                    if($update == "ok"){  
+                        $select_up = "SELECT * FROM category WHERE id=$id";    
+                        $query = mysqli_query($conn, $select_up);
+                        
+                        if($query == true){
+                            if($cat = $query->fetch_assoc()){
+                ?>
+
+                <form method="post" action="function/category.php?func=update&id=<?php echo $id?>">
+                    <label style="font-size: 10pt;">Cadastrar categoria:</label><br>
+                    <input type="text" name="category" placeholder="Categoria:" id="input" value="<?php echo $cat['category'] ?>">
+                    <br>
+                    <input type="submit" value="Cadastrar" id="button">
+                </form>                      
+                <?php
+                            }
+                        }
+                    }else{
+                ?>  
+                <form method="post" action="function/category.php?func=insert">
                     <label style="font-size: 10pt;">Cadastrar categoria:</label><br>
                     <input type="text" name="category" placeholder="Categoria:" id="input">
                     <br>
                     <input type="submit" value="Cadastrar" id="button">
                 </form>                    
-                <!--Form ==============================================================================-->            
+                <?php
+                    }
+                ?>                  
+                <!--Insert And Update =================================================================-->   
             </div>
             <div id="line"></div>
             <!--Register Area =========================================================================-->
@@ -113,7 +154,7 @@
                     
                     <!--Update ========================================================================-->
                     <div class="icon-separate">
-                        <a href="category.php?update=<?php echo $cat['id'] ?>" style=" color: black;">
+                        <a href="category.php?update=ok&id=<?php echo $cat['id'] ?>" style=" color: black;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                 <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                             </svg>
