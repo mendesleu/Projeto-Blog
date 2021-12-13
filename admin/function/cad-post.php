@@ -8,15 +8,19 @@
     switch($func){
 
         case "insert":
+
+            $timezone = new DateTimeZone('America/Sao_Paulo'); // Define o fuso horario
+            $date1 = new DateTime('now', $timezone); // Define o horario atual baseado no fuso
+
+            $date = $date1->format('d/m/Y H:i');
             
             $title = $_POST['title'];
-            // $date = $_POST['date'];
             $thumb = $_POST['thumb'];
             $author = $_POST['author'];
             $category = $_POST['category'];
             $post = $_POST['post'];
 
-            $insert = "INSERT INTO posts (title, thumb, author, category, post) VALUE ('$title', '$thumb', '$author', '$category', '$post')";
+            $insert = "INSERT INTO posts (date, title, thumb, author, category, post) VALUE ('$date', '$title', '$thumb', '$author', '$category', '$post')";
             $query = mysqli_query($conn, $insert);
 
             if($query == true){
