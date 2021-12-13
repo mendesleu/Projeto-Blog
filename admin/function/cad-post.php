@@ -20,10 +20,9 @@
             $query = mysqli_query($conn, $insert);
 
             if($query == true){
-                echo "Postagem feita com sucesso";
+                header("Location: ../list-post.php?status=true");
             }else {
-                echo "Erro ao fazer a postagem";
-                echo $conn -> error;
+                header("Location: ../list-post?status=error");
             }
 
         break;
@@ -40,10 +39,7 @@
             $query = mysqli_query($conn, $update);
 
             if($query == true){
-                echo "Postagem alterada com sucesso";
-            }else {
-                echo "Erro ao alterar a postagem <br>";
-                echo $conn -> error;
+                header("Location: ../list-post.php?status=update");
             }
          break;
         
@@ -54,8 +50,7 @@
 
             if($query == true){
                 echo "Postagem deletada com sucesso";
-            }else{
-                echo "Erro ao deletar postagem";
+                header("Location: ../list-post.php?status=del");
             }
         break;
 

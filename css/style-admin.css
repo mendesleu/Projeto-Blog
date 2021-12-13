@@ -155,4 +155,16 @@ main{
 #check:checked ~ #box-warning{
     display: none;
 }
+
+#check:checked ~ #box-warning-error{
+    display: none;
+}
+
+#check:checked ~ #box-warning-update{
+    display: none;
+}
+
+#check:checked ~ #box-warning-del{
+    display: none;
+}
 /* Box confirmation ================================================================= */
