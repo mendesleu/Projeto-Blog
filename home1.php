@@ -50,89 +50,42 @@
         <!--Contet ====================================================================================-->
         <article id="container-content">
 
-            <a href="" style="color: black;">
+            <?php
+
+                require_once "admin/function/conn.php";
+
+                $select = "SELECT * FROM posts ORDER BY id DESC LIMIT 10";
+                $query = mysqli_query($conn, $select);
+
+                if($query == true){
+                    while($row = $query->fetch_assoc()){
+
+            ?>
+
+            <a href="pages/noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
                 <section class="container-cards">
-                    <section class="photo"></section>
+                    <section class="photo"<?php echo $row['thumb']; ?>></section>
                     <section class="container-cards-description">
                         <div class="cards-title">
                             <h4>
-                                Exemplo de titulo para testar o espaço onde 
-                                ele ira ficar preciso encher linguiça...
+                                <?php echo $row['title']; ?>
                             </h4>
                         </div>
                         <div class="cards-description">
                             <p>
-                                Texto para medir o tamanho do pequeno paragrafo
-                                que ira ficar na descrição do card, para o usuario
-                                ler uma previa do texto...
+                                <?php echo $row['post']; ?>
                             </p>
                         </div>
                     </section>
                 </section>
             </a>
 
-            <a href="" style="color: black;">
-                <section class="container-cards">
-                    <section class="photo"></section>
-                    <section class="container-cards-description">
-                        <div class="cards-title">
-                            <h4>
-                                Exemplo de titulo para testar o espaço onde 
-                                ele ira ficar preciso encher linguiça...
-                            </h4>
-                        </div>
-                        <div class="cards-description">
-                            <p>
-                                Texto para medir o tamanho do pequeno paragrafo
-                                que ira ficar na descrição do card, para o usuario
-                                ler uma previa do texto...
-                            </p>
-                        </div>
-                    </section>
-                </section>
-            </a>
+            <?php
+                    }
+                }
 
-            <a href="" style="color: black;">
-                <section class="container-cards">
-                    <section class="photo"></section>
-                    <section class="container-cards-description">
-                        <div class="cards-title">
-                            <h4>
-                                Exemplo de titulo para testar o espaço onde 
-                                ele ira ficar preciso encher linguiça...
-                            </h4>
-                        </div>
-                        <div class="cards-description">
-                            <p>
-                                Texto para medir o tamanho do pequeno paragrafo
-                                que ira ficar na descrição do card, para o usuario
-                                ler uma previa do texto...
-                            </p>
-                        </div>
-                    </section>
-                </section>
-            </a>
-
-            <a href="" style="color: black;">
-                <section class="container-cards">
-                    <section class="photo"></section>
-                    <section class="container-cards-description">
-                        <div class="cards-title">
-                            <h4>
-                                Exemplo de titulo para testar o espaço onde 
-                                ele ira ficar preciso encher linguiça...
-                            </h4>
-                        </div>
-                        <div class="cards-description">
-                            <p>
-                                Texto para medir o tamanho do pequeno paragrafo
-                                que ira ficar na descrição do card, para o usuario
-                                ler uma previa do texto...
-                            </p>
-                        </div>
-                    </section>
-                </section>
-            </a>
+                mysqli_close($conn);
+            ?>
 
         </article>
         <!--Contet ====================================================================================-->

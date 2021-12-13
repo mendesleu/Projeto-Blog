@@ -49,47 +49,50 @@
         <!--Contet ====================================================================================-->
         <article id="container-content">
 
+        <?php
+            require_once "../admin/function/conn.php";
+
+            $not = isset($_GET['not'])?$_GET['not']:"";
+            $id = isset($_GET['id'])?$_GET['id']:"";
+
+            $select = "SELECT * FROM posts WHERE id=$id";
+            $query = mysqli_query($conn, $select);
+
+            if($query == true){
+                if($row = $query->fetch_assoc()){
+        ?>
             <section id="title">
                 <p>
-                    Exemplo de titulo para testar o espaço onde 
-                    ele ira ficar preciso encher linguiça
+                    <?php echo $row['title']; ?>
                 </p>
             </section>
 
             <section id="container-author-date">
-                <label>Autor: Leo Mendes</label>
+                <label>Autor: <?php echo $row['author']; ?></label>
                 <div style="display: flex; align-items: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
                         <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
                         <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                     </svg>
-                    <label style="margin-left: 10px;">24/02/1997</label>
+                    <label style="margin-left: 10px;"><?php echo $row['date']; ?></label>
                 </div>
             </section>
             
             <section id="container-photo">
-                <div id="photo"></div>
+                <div id="photo"><?php echo $row['thumb']; ?></div>
             </section>
 
             <section id="text">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet eleifend dui. 
-                    Mauris pulvinar, augue in ornare semper, sapien odio rhoncus purus, sit amet laoreet orci
-                    massa in ante. Proin condimentum porta libero, a vulputate urna vulputate at. Fusce efficitur 
-                    posuere tellus efficitur aliquam. Maecenas vestibulum quam sed arcu convallis lobortis. Curabitur 
-                    ermentum, enim eu feugiat tristique, massa metus gravida nunc, non egestas sapien nulla eu purus. 
-                    Ut quis tortor et neque facilisis venenatis a nec augue.
-                    <br><br>
-                    Etiam blandit nisl non erat iaculis, luctus porttitor felis tincidunt. Mauris eu neque sodales, 
-                    rhoncus eros id, varius metus. Curabitur tincidunt bibendum consequat. Integer venenatis mollis 
-                    lacus vel tincidunt. Phasellus diam nunc, tincidunt vel ornare sit amet, imperdiet in justo. In 
-                    hac habitasse platea dictumst. Proin ante risus, laoreet a ligula in, faucibus laoreet mi. 
-                    Suspendisse mollis eleifend tristique. Praesent egestas, sapien vel condimentum hendrerit, elit 
-                    est faucibus lacus, ut blandit elit nisi ac quam. Nulla pulvinar sagittis orci. Vestibulum dictum 
-                    volutpat lectus sit amet dapibus. Maecenas vitae augue pellentesque, accumsan augue eu, sodales 
-                    dui. Praesent massa mi, pellentesque vel tortor eget, suscipit ornare ligula.
+                    <?php echo $row['post']; ?>
                 </p>
             </section>
+            <?php
+                }
+            }
+
+            mysqli_close($conn);
+            ?>
 
         </article>
         <!--Contet ====================================================================================-->
