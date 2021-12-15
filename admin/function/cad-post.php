@@ -41,12 +41,13 @@
             $post = $_POST['post'];
             $tag = $_POST['tags'];
 
-            $update = "UPDATE posts SET title='$title', thumb='$thumb', author='$author', category='$category', post='$post', tag='$tag' WHERE id=$id";
+            $update = "UPDATE posts SET title='$title', thumb='$thumb', author='$author', category='$category', post='$post', tags='$tag' WHERE id=$id";
             $query = mysqli_query($conn, $update);
 
             if($query == true){
                 header("Location: ../list-post.php?status=update");
             }
+
          break;
         
         case "delete":
@@ -58,6 +59,7 @@
                 echo "Postagem deletada com sucesso";
                 header("Location: ../list-post.php?status=del");
             }
+            
         break;
 
     }

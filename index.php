@@ -20,7 +20,7 @@
                     <img src="img/logo.png" width="100%" alt="logo">
                 </a>
             </div>
-            <form action="#" method="post" id="form-search">
+            <form action="pages/search.php" method="get" id="form-search">
                 <input type="text" name="search" id="search-input">
                 <button type="submit" id="search-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -43,7 +43,7 @@
                         while($cat = $query2->fetch_assoc()){
                 ?>
                     <li>
-                        <a href="search.php?cat=<?php echo $cat['category'] ?>" style="text-transform: uppercase;">
+                        <a href="search.php?search=<?php echo $cat['category'] ?>" style="text-transform: uppercase;">
                             <?php echo $cat['category'] ?>
                         </a>
                     </li>

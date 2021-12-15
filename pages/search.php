@@ -20,7 +20,7 @@
                     <img src="../img/logo.png" width="100%" alt="logo">
                 </a>
             </div>
-            <form action="#" method="post" id="form-search">
+            <form action="search.php" method="get" id="form-search">
                 <input type="text" name="search" id="search-input">
                 <button type="submit" id="search-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -43,7 +43,7 @@
                         while($cat = $query2->fetch_assoc()){
                 ?>
                     <li>
-                        <a href="search.php?cat=<?php echo $cat['category'] ?>" style="text-transform: uppercase;">
+                        <a href="search.php?search=<?php echo $cat['category'] ?>" style="text-transform: uppercase;">
                             <?php echo $cat['category'] ?>
                         </a>
                     </li>
@@ -65,17 +65,18 @@
 
             <?php
 
-                $cat_search = isset($_GET['cat'])?$_GET['cat']:"";
+                $search = isset($_GET['search'])?$_GET['search']:"";
+                $search = trim($search);
 
-                $select = "SELECT * FROM posts WHERE category = $cat_search";
+                $select = "SELECT * FROM posts WHERE tags LIKE '%$search%' OR title LIKE '%$search%' OR category LIKE '%$search%'";
                 $query = mysqli_query($conn, $select);
 
-                if($query == true){
+                if($query->num_rows > 0){
                     while($row = $query->fetch_assoc()){
 
             ?>
 
-            <a href="pages/noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
+            <a href="noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
                 <section class="container-cards">
                     <section class="photo"<?php echo $row['thumb']; ?>></section>
                     <section class="container-cards-description">
@@ -95,8 +96,10 @@
 
             <?php
                     }
+                }else {
+                    echo "Não há resultados para $search";
                 }
-
+                
                 mysqli_close($conn);
             ?>
 
