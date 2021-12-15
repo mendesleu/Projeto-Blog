@@ -32,15 +32,26 @@
 
         <nav>
             <ul>
-                <li><a href="">Esportes</a></li>
-                <li><a href="">Tecnologia</a></li>
-                <li><a href="">Moda</a></li>
-                <li><a href="">Saúde</a></li>
-                <li><a href="">Música</a></li>
-                <li><a href="">Humor</a></li>
-                <li><a href="">Curiosidades</a></li>
-                <li><a href="">Culinária</a></li>
-                <li><a href="">Economia</a></li>
+                <?php
+
+                    require_once "admin/function/conn.php";
+
+                    $select_cat = "SELECT * FROM category";
+                    $query2 = mysqli_query($conn, $select_cat);
+
+                    if($query2 == true){
+                        while($cat = $query2->fetch_assoc()){
+                ?>
+                    <li>
+                        <a href="search.php?cat=<?php echo $cat['category'] ?>" style="text-transform: capitalize;">
+                            <?php echo $cat['category'] ?>
+                        </a>
+                    </li>
+                <?php
+                        }
+                    }
+
+                ?>
             </ul>
         </nav>
     </header>
@@ -53,8 +64,6 @@
         <article id="container-content">
 
             <?php
-
-                require_once "admin/function/conn.php";
 
                 $select = "SELECT * FROM posts ORDER BY id DESC LIMIT 10";
                 $query = mysqli_query($conn, $select);
