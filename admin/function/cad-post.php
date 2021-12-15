@@ -19,8 +19,9 @@
             $author = $_POST['author'];
             $category = $_POST['category'];
             $post = $_POST['post'];
+            $tag = $_POST['tags'];
 
-            $insert = "INSERT INTO posts (date, title, thumb, author, category, post) VALUE ('$date', '$title', '$thumb', '$author', '$category', '$post')";
+            $insert = "INSERT INTO posts (date, title, thumb, author, category, post, tags) VALUE ('$date', '$title', '$thumb', '$author', '$category', '$post', '$tag')";
             $query = mysqli_query($conn, $insert);
 
             if($query == true){
@@ -38,8 +39,9 @@
             $author = $_POST['author'];
             $category = $_POST['category'];
             $post = $_POST['post'];
+            $tag = $_POST['tags'];
 
-            $update = "UPDATE posts SET title='$title', thumb='$thumb', author='$author', category='$category', post='$post' WHERE id=$id";
+            $update = "UPDATE posts SET title='$title', thumb='$thumb', author='$author', category='$category', post='$post', tag='$tag' WHERE id=$id";
             $query = mysqli_query($conn, $update);
 
             if($query == true){

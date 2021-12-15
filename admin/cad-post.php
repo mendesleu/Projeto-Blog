@@ -56,13 +56,26 @@
                     
                     <select name="category">
                         <option value="<?php echo $up['category'] ?>"><?php echo $up['category'] ?></option>
-                        <option value="tecnologia">Tecnologia</option>
-                        <option value="esportes">Esportes</option>
-                        <option value="politica">Politica</option>
-                        <option value="saude">Saude</option>
+                        <?php
+                                $select_cat = "SELECT * FROM category";
+                                $query2 = mysqli_query($conn, $select_cat);
+
+                                if($query2 == true){
+                                    while($cat = $query2->fetch_assoc()){
+                                        
+                            ?>
+
+                            <option value="<?php echo $cat['category'] ?>"><?php echo $cat['category'] ?></option>
+
+                            <?php
+                                    }
+                                }
+                            ?>
                     </select>
                     
                     <textarea name="post"><?php echo $up['post'] ?></textarea>
+
+                    <input type="text" name="tags" placeholder="Tags" value="<?php echo $up['tags'] ?>" class="inputs-class" style="margin-bottom: 10px;">
 
                     <input type="submit" value="Cadastrar" id="button">
                     
@@ -83,16 +96,30 @@
                         <input type="file" name="thumb" placeholder="Capa" style="margin: 10px 0 10px 0;">
 
                         <input type="text" name="author" placeholder="Autor" required class="inputs-class">
-
+                        
                         <select name="category">
-                            <option value="categoria">Categoria</option>
-                            <option value="tecnologia">Tecnologia</option>
-                            <option value="esportes">Esportes</option>
-                            <option value="politica">Politica</option>
-                            <option value="saude">Saude</option>
+                            <option value="Categoria">Categoria</option>
+
+                            <?php
+                                $select_cat = "SELECT * FROM category";
+                                $query2 = mysqli_query($conn, $select_cat);
+
+                                if($query2 == true){
+                                    while($cat = $query2->fetch_assoc()){
+                                        
+                            ?>
+
+                            <option value="<?php echo $cat['category'] ?>"><?php echo $cat['category'] ?></option>
+
+                            <?php
+                                    }
+                                }
+                            ?>
                         </select>
 
                         <textarea name="post"></textarea>
+
+                        <input type="text" name="tags" placeholder="Tags" class="inputs-class" style="margin-bottom: 10px;">
 
                         <input type="submit" value="Cadastrar" id="button">
 
