@@ -54,7 +54,7 @@
                     
                     <input type="text" name="author" placeholder="Autor" required class="inputs-class" value="<?php echo $up['author'] ?>">
                     
-                    <select name="category">
+                    <select name="category" style="text-transform: capitalize;">
                         <option value="<?php echo $up['category'] ?>"><?php echo $up['category'] ?></option>
                         <?php
                                 $select_cat = "SELECT * FROM category";
@@ -65,7 +65,7 @@
                                         
                             ?>
 
-                            <option value="<?php echo $cat['category'] ?>"><?php echo $cat['category'] ?></option>
+                            <option value="<?php echo $cat['category'] ?>" style="text-transform: capitalize;"><?php echo $cat['category'] ?></option>
 
                             <?php
                                     }
@@ -97,7 +97,7 @@
 
                         <input type="text" name="author" placeholder="Autor" required class="inputs-class">
                         
-                        <select name="category">
+                        <select name="category" style="text-transform: capitalize;">
                             <option value="Categoria">Categoria</option>
 
                             <?php
@@ -109,7 +109,7 @@
                                         
                             ?>
 
-                            <option value="<?php echo $cat['category'] ?>"><?php echo $cat['category'] ?></option>
+                            <option value="<?php echo $cat['category'] ?>" style="text-transform: capitalize;"><?php echo $cat['category'] ?></option>
 
                             <?php
                                     }
