@@ -16,7 +16,9 @@
     <header>
         <div id="container-header">
             <div id="logo">
-                <img src="../img/logo.png" width="100%" alt="logo">
+                <a href="../index.php">
+                    <img src="../img/logo.png" width="100%" alt="logo">
+                </a>
             </div>
             <form action="#" method="post" id="form-search">
                 <input type="text" name="search" id="search-input">
