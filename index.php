@@ -43,7 +43,7 @@
                         while($cat = $query2->fetch_assoc()){
                 ?>
                     <li>
-                        <a href="search.php?search=<?php echo $cat['category'] ?>" style="text-transform: uppercase;">
+                        <a href="pages/search.php?search=<?php echo $cat['category'] ?>" style="text-transform: uppercase;">
                             <?php echo $cat['category'] ?>
                         </a>
                     </li>
