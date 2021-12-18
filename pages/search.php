@@ -71,28 +71,32 @@
                 $select = "SELECT * FROM posts WHERE tags LIKE '%$search%' OR title LIKE '%$search%' OR category LIKE '%$search%'";
                 $query = mysqli_query($conn, $select);
 
-                if($query->num_rows > 0){
+                if($query->num_rows >    0){
                     while($row = $query->fetch_assoc()){
 
             ?>
 
-            <a href="noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
-                <section class="container-cards">
-                    <section class="photo"<?php echo $row['thumb']; ?>></section>
-                    <section class="container-cards-description">
-                        <div class="cards-title">
-                            <h4>
-                                <?php echo $row['title']; ?>
-                            </h4>
-                        </div>
-                        <div class="cards-description">
-                            <p>
-                                <?php echo $row['post']; ?>
-                            </p>
-                        </div>
-                    </section>
-                </section>
-            </a>
+                        <a href="pages/noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
+                            <section class="container-cards">
+                                <section class="photo">
+                                    <div class="box-thumb">
+                                        <img src="../img/post/<?php echo $row['thumb'] ?>" class="thumb">
+                                    </div>
+                                </section>
+                                <section class="container-cards-description">
+                                    <div class="cards-title">
+                                        <h4>
+                                            <?php echo $row['title']; ?>
+                                        </h4>
+                                    </div>
+                                    <div class="cards-description">
+                                        <p>
+                                            <?php echo $row['post']; ?>
+                                        </p>
+                                    </div>
+                                </section>
+                            </section>
+                        </a>
 
             <?php
                     }
