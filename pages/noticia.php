@@ -74,9 +74,9 @@
                 if($row = $query->fetch_assoc()){
         ?>
             <section id="title">
-                <p>
+                <h3>
                     <?php echo $row['title']; ?>
-                </p>
+                </h3>
             </section>
 
             <section id="container-author-date">
@@ -97,7 +97,7 @@
             </section>
 
             <section id="text">
-                <p>
+                <p style="font-size: 11pt;">
                     <?php echo $row['post']; ?>
                 </p>
             </section>
