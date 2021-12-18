@@ -16,13 +16,25 @@
 
     display: flex;
     justify-content: center;
+
     align-items: center;
+    margin: 10px 0 10px 0;
 }
 
 #photo{
     width: 550px;
     height: 350px;
     background-color: grey;
+}
+
+#thumb{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover   ;
 }
 
 #text{

@@ -91,7 +91,9 @@
             </section>
             
             <section id="container-photo">
-                <div id="photo"><?php echo $row['thumb']; ?></div>
+                <div id="photo">
+                    <img src="../img/post/<?php echo $row['thumb'] ?>" id="thumb">
+                </div>
             </section>
 
             <section id="text">

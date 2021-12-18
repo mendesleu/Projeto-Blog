@@ -18,6 +18,21 @@
     border-radius: 10px 0 0 10px;
 }
 
+.box-thumb{
+    width: 200px;
+    height: 150px;
+}
+
+.thumb{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+
+
 .container-cards-description{
     width: 390px;
     margin-left: 10px;

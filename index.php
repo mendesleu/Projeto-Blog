@@ -75,7 +75,11 @@
 
             <a href="pages/noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
                 <section class="container-cards">
-                    <section class="photo"<?php echo $row['thumb']; ?>></section>
+                    <section class="photo">
+                        <div class="box-thumb">
+                            <img src="img/post/<?php echo $row['thumb'] ?>" class="thumb">
+                        </div>
+                    </section>
                     <section class="container-cards-description">
                         <div class="cards-title">
                             <h4>
