@@ -44,13 +44,12 @@
         case "update":
 
             $title = $_POST['title'];
-            $thumb = $_POST['thumb'];
             $author = $_POST['author'];
             $category = $_POST['category'];
             $post = $_POST['post'];
             $tag = $_POST['tags'];
 
-            $update = "UPDATE posts SET title='$title', thumb='$thumb', author='$author', category='$category', post='$post', tags='$tag' WHERE id=$id";
+            $update = "UPDATE posts SET title='$title', author='$author', category='$category', post='$post', tags='$tag' WHERE id=$id";
             $query = mysqli_query($conn, $update);
 
             if($query == true){
