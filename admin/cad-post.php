@@ -46,7 +46,7 @@
 
                 ?>
                 <!--Form ==============================================================================-->
-                <form method="post" action="function/cad-post.php?func=update&id=<?php echo $id ?>">
+                <form method="post" action="function/cad-post.php?func=update&id=<?php echo $id ?>" enctype="multipart/form-data">
                     
                     <input type="text" name="title" placeholder="Titulo" required class="inputs-class" value="<?php echo $up['title'] ?>">
                      
@@ -87,7 +87,7 @@
                     }else{
                 ?>
 
-                        <form method="post" action="function/cad-post.php?func=insert">
+                        <form method="post" action="function/cad-post.php?func=insert" enctype="multipart/form-data">
                     
                         <input type="text" name="title" placeholder="Titulo" required class="inputs-class">
 

@@ -13,21 +13,30 @@
             $date1 = new DateTime('now', $timezone); // Define o horario atual baseado no fuso
 
             $date = $date1->format('d/m/Y H:i');
+
+            
+            if(isset($_FILES['thumb'])){
+                $extensao = strtolower(substr($_FILES['thumb']['name'], -4)); //Capta a extensão do arquivo
+                $thumb_name = md5(time()). $extensao; // Muda o nome do arquivo
+                $diretorio = "../../img/post/"; // Diretorio onde será salvo o arquivo
+
+                move_uploaded_file($_FILES['thumb']['tmp_name'], $diretorio.$thumb_name); // Vai mover o arquivo para o diretorio
+
+            }
             
             $title = $_POST['title'];
-            $thumb = $_POST['thumb'];
             $author = $_POST['author'];
             $category = $_POST['category'];
             $post = $_POST['post'];
             $tag = $_POST['tags'];
 
-            $insert = "INSERT INTO posts (date, title, thumb, author, category, post, tags) VALUE ('$date', '$title', '$thumb', '$author', '$category', '$post', '$tag')";
+            $insert = "INSERT INTO posts (date, title, author, thumb, category, post, tags) VALUE ('$date', '$title', '$author', '$thumb_name', '$category', '$post', '$tag')";
             $query = mysqli_query($conn, $insert);
 
             if($query == true){
                 header("Location: ../list-post.php?status=true");
             }else {
-                header("Location: ../list-post?status=error");
+                header("Location: ../list-post.php?status=error");
             }
 
         break;
