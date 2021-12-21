@@ -71,7 +71,9 @@
 
             // Deleta a imagem na pasta
             $diretorio = "../../img/post/$img";
-            unlink($diretorio);
+            if(file_exists($diretorio)){ // Verifica há existencia do arquivo
+                unlink($diretorio);
+            }
             // Deleta a imagem na pasta
             
         break;
