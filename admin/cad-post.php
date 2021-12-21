@@ -30,8 +30,12 @@
     <link rel="stylesheet" media="all" type="text/css" href="../css/cad-post.css">
     <link rel="stylesheet" media="all" type="text/css" href="../css/style-admin.css">
     
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>tinymce.init({selector:'textarea'});</script>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+      window.onload = function()  {
+        CKEDITOR.replace( 'post' );
+      };
+    </script> 
 
 </head>
 <body>
@@ -95,7 +99,7 @@
                             ?>
                     </select>
                     
-                    <textarea name="post"><?php echo $up['post'] ?></textarea>
+                    <textarea name="post" id="post"><?php echo $up['post'] ?></textarea>
 
                     <input type="text" name="tags" placeholder="Tags" value="<?php echo $up['tags'] ?>" class="inputs-class" style="margin-bottom: 10px;">
 
@@ -139,7 +143,7 @@
                             ?>
                         </select>
 
-                        <textarea name="post"></textarea>
+                        <textarea name="post" id="post"></textarea>
 
                         <input type="text" name="tags" placeholder="Tags" class="inputs-class" style="margin-bottom: 10px;">
 
