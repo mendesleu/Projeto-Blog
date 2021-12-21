@@ -8,6 +8,9 @@
     
     <link rel="stylesheet" media="all" type="text/css" href="../css/cad-post.css">
     <link rel="stylesheet" media="all" type="text/css" href="../css/style-admin.css">
+    
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
 
 </head>
 <body>
