@@ -1,3 +1,9 @@
+<?php 
+
+   session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +19,7 @@
 <body>
 
     <div id="container-login">
-        <form action="#" method="POST">
+        <form action="function/login.php?func=login" method="POST">
             <div id="box-login">Area de Login</div>
             <input type="text" placeholder="Usuário:" name="user">
             <input type="password" placeholder="Senha:" name="password">

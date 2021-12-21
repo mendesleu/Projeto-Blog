@@ -1,3 +1,24 @@
+<?php
+    // Login
+    session_start();
+
+    require_once "function/conn.php";
+
+    $user = $_SESSION['user_ok'];
+    $password = $_SESSION['password_ok'];
+
+    $select = "SELECT * FROM adm WHERE user = '$user' AND password = '$password'";
+    $query = mysqli_query($conn, $select);
+    while($listar = mysqli_fetch_array($query)){
+    }
+
+    if(!isset($_SESSION['user_ok']) AND !isset($_SESSION['password_ok'])){
+        header('Location: login.php');
+    }
+    // Login
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,8 +53,6 @@
             <div id="form-area">
                 
                 <?php
-
-                    require_once "function/conn.php";
                     
                     $func = isset($_GET['func'])?$_GET['func']:"";
                     $id = isset($_GET['id'])?$_GET['id']:"";

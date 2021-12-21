@@ -1,6 +1,24 @@
 <?php
 
+    // Login
+    session_start();
+
     require_once "function/conn.php";
+
+    $user = $_SESSION['user_ok'];
+    $password = $_SESSION['password_ok'];
+
+    $select = "SELECT * FROM adm WHERE user = '$user' AND password = '$password'";
+    $query = mysqli_query($conn, $select);
+    while($listar = mysqli_fetch_array($query)){
+    }
+
+    if(!isset($_SESSION['user_ok']) AND !isset($_SESSION['password_ok'])){
+        header('Location: login.php');
+    }
+    // Login
+
+
 
     $delete = isset($_GET['delete'])?$_GET['delete']:"";
     
