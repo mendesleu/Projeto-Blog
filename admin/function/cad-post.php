@@ -4,6 +4,7 @@
 
     $func = isset($_GET['func'])?$_GET['func']:"";
     $id = isset($_GET['id'])?$_GET['id']:"";
+    $img = isset($_GET['img'])?$_GET['img']:"";
 
     switch($func){
 
@@ -67,6 +68,11 @@
                 echo "Postagem deletada com sucesso";
                 header("Location: ../list-post.php?status=del");
             }
+
+            // Deleta a imagem na pasta
+            $diretorio = "../../img/post/$img";
+            unlink($diretorio);
+            // Deleta a imagem na pasta
             
         break;
 
