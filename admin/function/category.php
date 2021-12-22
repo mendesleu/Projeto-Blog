@@ -2,37 +2,61 @@
 
     require_once "conn.php";
 
-    $func = isset($_GET['func'])?$_GET['func']:"";
+    $func = isset($_GET['func'])?$_GET['func']:"invalid";
 
-    if($func == "insert"){
+    switch($func){
 
-        $category = $_POST['category'];
+        case "insert":
+
+            $category = $_POST['category'];
         
-        $insert = "INSERT INTO category (category) VALUE ('$category')";
-        $query = mysqli_query($conn, $insert);
+            $insert = "INSERT INTO category (category) VALUE ('$category')";
+            $query = mysqli_query($conn, $insert);
         
-        if($query == true){
-            // echo "Categoria Gravada com sucesso";
-            header("Location: ../category.php?status=true");
-        }else{
-            // echo "Erro ao gravar categoria";
-            // echo $conn -> error;
-            header("Location: ../category.php?status=false");
-        }
-    }
+            if($query == true){
+                // echo "Categoria Gravada com sucesso";
+                header("Location: ../category.php?status=true");
+            }else{
+                // echo "Erro ao gravar categoria";
+                // echo $conn -> error;
+                header("Location: ../category.php?status=false");
+            }
 
-    if($func == "update"){
+        break;
 
-        $category = $_POST['category'];
-        $id = $_GET['id'];
+        case "update":
 
-        $update = "UPDATE category SET category='$category' WHERE id=$id";
-        $query = mysqli_query($conn, $update);
+            $category = $_POST['category'];
+            $id = $_GET['id'];
+    
+            $update = "UPDATE category SET category='$category' WHERE id=$id";
+            $query = mysqli_query($conn, $update);
+    
+            if($query == true){
+                header("Location: ../category.php?status=update");
+            }else{
+                echo "Ouve um erro na alteração!";
+                echo $conn -> error;
+            }
 
-        if($query == true){
-            header("Location: ../category.php?status=update");
-        }else{
-            echo "Ouve um erro na alteração!";
-            echo $conn -> error;
-        }
+
+        break;
+
+        case "delete":
+            
+            $delete = isset($_GET['delete'])?$_GET['delete']:"";
+    
+                $delete = "DELETE FROM category WHERE id=$delete";
+            $query = mysqli_query($conn, $delete);
+
+            if($query == true){
+                header("Location: ../category.php?status=del");
+            }
+
+        break;
+
+        case "invalid":
+            header("Location: ../login.php");
+        break;
+
     }
