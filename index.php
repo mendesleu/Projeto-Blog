@@ -99,7 +99,6 @@
                     }
                 }
 
-                mysqli_close($conn);
             ?>
 
         </article>
@@ -109,7 +108,21 @@
 
         <!--Aside =====================================================================================-->
         <aside>
+            <?php
+                $select = "SELECT * FROM publicity";
+                $query = mysqli_query($conn, $select);
 
+                if($query -> num_rows > 0){
+                    while($publi = $query -> fetch_assoc()){
+                    
+            ?>
+                <div class="banners"><img src="img/publi/<?php echo $publi['publicity'] ?>" class="img-banner"></div>
+            <?php
+                    }
+                }
+
+                mysqli_close($conn);
+            ?>
         </aside>
         <!--Aside =====================================================================================-->
 
