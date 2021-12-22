@@ -1,6 +1,6 @@
 <?php
     
-    $id = isset($_GET['id'])?$_GET['id']:"";
+    $id = isset($_GET['id'])?$_GET['id']:"invalid";
     $name = isset($_GET['nome'])?$_GET['nome']:"";
     echo $name;
 
@@ -151,6 +151,10 @@
                 unlink($dir);
             }
 
+        break;
+
+        case "invalid":
+            header("Location: ../login.php");
         break;
     }
 

@@ -34,9 +34,6 @@
 <body>
 
     <?php 
-
-        $status = isset($_GET['status'])?$_GET['status']:"";
-
         include "function/status-adm.php";
     ?>
     <!--Avisos ========================================================================================-->

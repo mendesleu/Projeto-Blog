@@ -1,5 +1,7 @@
 <?php
 
+    $status = isset($_GET['status'])?$_GET['status']:"invalid";
+
     switch($status){
         case "true":
             echo "
@@ -36,6 +38,10 @@
                 </div>
                 ";
             break;
+        
+        case "invalid":
+            header("Location: ../login.php");
+        break;
     }
 
 ?>

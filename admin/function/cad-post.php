@@ -2,7 +2,7 @@
 
     include "conn.php";
 
-    $func = isset($_GET['func'])?$_GET['func']:"";
+    $func = isset($_GET['func'])?$_GET['func']:"invalid";
     $id = isset($_GET['id'])?$_GET['id']:"";
     $img = isset($_GET['img'])?$_GET['img']:"";
 
@@ -76,6 +76,10 @@
             }
             // Deleta a imagem na pasta
             
+        break;
+
+        case "invalid":
+            header("Location: ../login.php");
         break;
 
     }

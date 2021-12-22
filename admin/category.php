@@ -46,11 +46,7 @@
 
     <!--Box Confirm White =============================================================================-->
     <?php
-
-        $status = isset($_GET['status'])?$_GET['status']:"";
-
         include "function/status-category.php";
-
     ?> 
     <!--Box Confirm White =============================================================================-->
 
