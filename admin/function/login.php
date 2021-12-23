@@ -20,6 +20,7 @@
                 $_SESSION['user_ok'] = $user;
                 $_SESSION['password_ok'] = $password;
                 
+                // echo "login feito com sucesso";
                 header("Location: ../list-post.php");
                 
             }else{
@@ -27,7 +28,7 @@
                 unset($_SESSION['user_ok']);
                 unset($_SESSION['password_ok']);
                 
-                header("Location:../login.php");
+                header("Location: ../login.php");
                 
             }
 

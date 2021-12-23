@@ -2,7 +2,7 @@
 
     require_once "conn.php";
 
-    $function = isset($_GET['func'])?$_GET['func']:"";
+    $function = isset($_GET['func'])?$_GET['func']:"invalid";
     $id = isset($_GET['id'])?$_GET['id']:"";
 
     switch($function){
@@ -61,6 +61,10 @@
                 echo $conn -> error;
             }
 
+        break;
+
+        case "invalid":
+            header("Location: ../login.phhp");
         break;
     }
 

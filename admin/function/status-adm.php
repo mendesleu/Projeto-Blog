@@ -1,7 +1,11 @@
 <?php
 
 
-    $status = isset($_GET['status'])?$_GET['status']:"invalid";    
+    $status = isset($_GET['status'])?$_GET['status']:"";   
+    
+    if(!isset($_SESSION['user_ok']) AND !isset($_SESSION['password_ok'])){
+        $status = "invalid";
+    }
 
     switch($status){
         case "true":
