@@ -28,7 +28,7 @@
                 unset($_SESSION['user_ok']);
                 unset($_SESSION['password_ok']);
                 
-                header("Location: ../login.php");
+                header("Location: ../index.php");
                 
             }
 
@@ -38,7 +38,7 @@
             unset($_SESSION['user_ok']);
             unset($_SESSION['password_ok']);
                 
-            header("Location:../login.php");
+            header("Location:../index.php");
 
         break;
     }

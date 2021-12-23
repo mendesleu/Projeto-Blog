@@ -79,7 +79,7 @@
         break;
 
         case "invalid":
-            header("Location: ../login.php");
+            header("Location: ../index.php");
         break;
 
     }
