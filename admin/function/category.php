@@ -3,6 +3,7 @@
     require_once "conn.php";
 
     $func = isset($_GET['func'])?$_GET['func']:"invalid";
+    $id = isset($_GET['id'])?$_GET['id']:"";
 
     switch($func){
 
@@ -44,9 +45,7 @@
 
         case "delete":
             
-            $delete = isset($_GET['delete'])?$_GET['delete']:"";
-    
-                $delete = "DELETE FROM category WHERE id=$delete";
+            $delete = "DELETE FROM category WHERE id=$id";
             $query = mysqli_query($conn, $delete);
 
             if($query == true){
