@@ -14,15 +14,25 @@
             $password = $_POST['password'];
             $level = $_POST['level'];
 
-            $insert = "INSERT INTO adm (name, description, user, password, level) VALUE ('$nome', '$description', '$user', '$password', '$level')";
-            $query = mysqli_query($conn, $insert);
+            $select = "SELECT * FROM adm WHERE user LIKE '%$user%'";
+            $query = mysqli_query($conn, $select);
 
-            if($query == true){
-                header("Location:../user-list.php?status=true");
-            }else {
-                header("Location:../user-list.php?status=false");
+            $valid = $query -> fetch_assoc();
 
-                echo $conn -> error;
+            if($user == $valid['user']){
+                header("Location: ../cad-user.php?status=valid");
+            }else{
+                
+                $insert = "INSERT INTO adm (name, description, user, password, level) VALUE ('$nome', '$description', '$user', '$password', '$level')";
+                $query = mysqli_query($conn, $insert);
+                
+                if($query == true){
+                    header("Location:../user-list.php?status=true");
+                }else {
+                    header("Location:../user-list.php?status=false");
+                    
+                    echo $conn -> error;
+                }
             }
 
         break;

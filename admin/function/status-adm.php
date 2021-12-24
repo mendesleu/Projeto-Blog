@@ -47,6 +47,15 @@
         case "invalid":
             header("Location: ../index.php");
         break;
+
+        case "valid":
+            echo "
+                <input type='checkbox' id='check'>
+                <div id='box-warning-del'>
+                    <label for='check'>Usuário já existente! <strong>Fechar</strong></label>
+                </div>
+                ";
+        break;
     }
 
 ?>
