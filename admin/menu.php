@@ -1,4 +1,6 @@
     <?php
+
+        session_start();
     
         if(!isset($_SESSION['user_ok']) AND !isset($_SESSION['password_ok'])){
             header("Location: login.php");
