@@ -16,11 +16,7 @@
 
     height: 150px;
     border-radius: 10px 0 0 10px;
-}
-
-.box-thumb{
-    width: 200px;
-    height: 150px;
+    object-fit: cover;
 }
 
 .thumb{
@@ -64,4 +60,91 @@
 
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+@media(max-width: 1024px){
+    .container-cards{
+        width: 500px;
+    }
+
+    .photo{
+        width: 180px;
+    }
+
+    .container-cards-description{
+        width: 310px;
+        padding: 5px;
+    }
+
+    .cards-title{
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media(max-width: 600px){
+    .container-cards{
+        width: 500px;
+    }
+
+    .photo{
+        width: 180px;
+    }
+
+    .container-cards-description{
+        width: 310px;
+        padding: 5px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .cards-title{
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media(max-width: 414px){
+    .container-cards{
+        width: 380px;
+    }
+
+    .photo{
+        width: 160px;
+    }
+
+    .container-cards-description{
+        width: 210px;
+        padding: 5px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .cards-title{
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media(max-width: 375px){
+    .container-cards{
+        width: 340px;
+    }
+
+    .photo{
+        width: 140px;
+    }
+
+    .container-cards-description{
+        width: 190px;
+        padding: 5px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .cards-title{
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

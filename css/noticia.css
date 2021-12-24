@@ -1,17 +1,16 @@
 #title{
-    width: 100%;
+    width: 600px;
     padding: 0 30px 0 30px;
-    text-align: justify;
 }
 
 #container-author-date{
     font-size: 9pt;
-    width: 100%;
+    width: 600px;
     padding: 10px 30px 0 30px;
 }
 
 #container-photo{
-    width: 100%;
+    width: 600px;
     height: 400px;
 
     display: flex;
@@ -43,4 +42,31 @@
 
 #text, p{
     text-align: justify;
+}
+
+/* Media ============================================================================ */
+
+@media(max-width: 414px){
+    #title{
+        width: 380px;
+    }
+
+    #container-author-date{
+        width: 380px;
+    }
+
+    #contaner-photo{
+        width: 400px;
+        height: 260px;
+    }
+
+    #photo{
+        width: 380px;
+        height: 240px;
+    }
+
+    #text{
+        width: 380px;
+        margin-bottom: 50px;
+    }
 }

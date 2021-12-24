@@ -76,12 +76,10 @@
 
             ?>
 
-                        <a href="pages/noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
+                        <a href="noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
                             <section class="container-cards">
                                 <section class="photo">
-                                    <div class="box-thumb">
-                                        <img src="../img/post/<?php echo $row['thumb'] ?>" class="thumb">
-                                    </div>
+                                    <img src="../img/post/<?php echo $row['thumb'] ?>" class="thumb">
                                 </section>
                                 <section class="container-cards-description">
                                     <div class="cards-title">
@@ -103,17 +101,30 @@
                 }else {
                     echo "Não há resultados para $search";
                 }
-                
-                mysqli_close($conn);
             ?>
 
         </article>
         <!--Contet ====================================================================================-->
 
-        <div style="width: 150px;"></div><!--Space-->
+        <div id="separate-space"></div><!--Space-->
 
         <!--Aside =====================================================================================-->
         <aside>
+            <?php
+                $select = "SELECT * FROM publicity";
+                $query = mysqli_query($conn, $select);
+
+                if($query -> num_rows > 0){
+                    while($publi = $query -> fetch_assoc()){
+                    
+            ?>
+                <div class="banners"><img src="../img/publi/<?php echo $publi['publicity'] ?>" class="img-banner"></div>
+            <?php
+                    }
+                }
+
+                mysqli_close($conn);
+            ?>
 
         </aside>
         <!--Aside =====================================================================================-->

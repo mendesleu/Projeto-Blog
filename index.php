@@ -7,7 +7,8 @@
     <title>Blog</title>
     
     <link rel="stylesheet" media="all" type="text/css" href="css/style.css">
-    <link rel="stylesheet" media="all" type="text/css" href="css/cards.css">
+    <link rel="stylesheet" media="all" type="text/css" href="css/cards.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -31,7 +32,12 @@
         </div>
 
         <nav>
+            <input type="checkbox" id="check-menu">
+            <label for="check-menu" class="botao">
+                <i class="fa fa-bars"></i>
+            </label>
             <ul>
+                <li><label class="botao2" for="check-menu"><i class="fa fa-bars"></i></label></li>
                 <?php
 
                     require_once "admin/function/conn.php";
@@ -76,9 +82,7 @@
             <a href="pages/noticia.php?not=<?php echo $row['title'] ?>&id=<?php echo $row['id'] ?>" style="color: black;">
                 <section class="container-cards">
                     <section class="photo">
-                        <div class="box-thumb">
-                            <img src="img/post/<?php echo $row['thumb'] ?>" class="thumb">
-                        </div>
+                        <img src="img/post/<?php echo $row['thumb'] ?>" class="thumb">                       
                     </section>
                     <section class="container-cards-description">
                         <div class="cards-title">
@@ -104,7 +108,7 @@
         </article>
         <!--Contet ====================================================================================-->
 
-        <div style="width: 150px;"></div><!--Space-->
+        <div id="separate-space"></div><!--Space-->
 
         <!--Aside =====================================================================================-->
         <aside>
