@@ -1,3 +1,11 @@
+    <?php
+    
+        if(!isset($_SESSION['user_ok']) AND !isset($_SESSION['password_ok'])){
+            header("Location: login.php");
+        }
+    
+    ?>
+
     <header id="top">
         <nav>
             <ul>
