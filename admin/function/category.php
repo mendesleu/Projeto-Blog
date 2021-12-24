@@ -59,3 +59,6 @@
         break;
 
     }
+    
+    mysqli_close($conn);
+?>
