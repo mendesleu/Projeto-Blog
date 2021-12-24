@@ -28,7 +28,7 @@
                 unset($_SESSION['user_ok']);
                 unset($_SESSION['password_ok']);
                 
-                header("Location: ../index.php");
+                header("Location: ../index.php?error=login");
                 
             }
 

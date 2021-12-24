@@ -2,6 +2,19 @@
 
    session_start();
 
+   $error = isset($_GET['error'])?$_GET['error']:"";
+
+   switch($error){
+        case "login":
+            echo "
+            <input type='checkbox' id='check'>
+            <div id='box-warning-error'>
+            <label for='check'>Usuário ou senha incorretos! <strong>Fechar</strong></label>
+            </div>
+            ";
+        break;
+   }
+
 ?>
 
 <!DOCTYPE html>
