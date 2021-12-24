@@ -31,7 +31,16 @@
         </div>
 
         <nav>
+            <input type="checkbox" id="check-menu">
+            <label for="check-menu" class="botao">
+                <i class="fa fa-bars"></i>
+            </label>
             <ul>
+                <li style="margin-bottom: 50px;">
+                    <a>
+                        <label for="check-menu" class="close-menu"><i class="fa fa-times"></i></label>
+                    </a>
+                </li>
                 <?php
 
                     require_once "../admin/function/conn.php";

@@ -37,7 +37,11 @@
                 <i class="fa fa-bars"></i>
             </label>
             <ul>
-                <li><label class="botao2" for="check-menu"><i class="fa fa-bars"></i></label></li>
+                <li style="margin-bottom: 50px;">
+                    <a>
+                        <label for="check-menu" class="close-menu"><i class="fa fa-times"></i></label>
+                    </a>
+                </li>
                 <?php
 
                     require_once "admin/function/conn.php";
