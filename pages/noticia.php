@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" media="all" type="text/css" href="../css/style.css">
     <link rel="stylesheet" media="all" type="text/css" href="../css/noticia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 </head>
 <body>
@@ -71,49 +73,121 @@
         <!--Contet ====================================================================================-->
         <article id="container-content">
 
-        <?php
-
-            $not = isset($_GET['not'])?$_GET['not']:"";
-            $id = isset($_GET['id'])?$_GET['id']:"";
-
-            $select = "SELECT * FROM posts WHERE id=$id";
-            $query = mysqli_query($conn, $select);
-
-            if($query == true){
-                if($row = $query->fetch_assoc()){
-        ?>
-            <section id="title">
-                <h3>
-                    <?php echo $row['title']; ?>
-                </h3>
-            </section>
-
-            <section id="container-author-date">
-                <label>Autor: <?php echo $row['author']; ?></label>
-                <div style="display: flex; align-items: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
-                        <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
-                        <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                    </svg>
-                    <label style="margin-left: 10px;"><?php echo $row['date']; ?></label>
-                </div>
-            </section>
+            <div id="box-content">
             
-            <section id="container-photo">
-                <div id="photo">
-                    <img src="../img/post/<?php echo $row['thumb'] ?>" id="thumb">
-                </div>
-            </section>
+                <?php
 
-            <section id="text">
-                <p style="font-size: 11pt;">
-                    <?php echo $row['post']; ?>
-                </p>
-            </section>
-            <?php
+                    $not = isset($_GET['not'])?$_GET['not']:"";
+                    $id = isset($_GET['id'])?$_GET['id']:"";
+
+                    $select = "SELECT * FROM posts WHERE id=$id";
+                    $query = mysqli_query($conn, $select);
+
+                    if($query == true){
+                    if($row = $query->fetch_assoc()){
+                ?>
+                <section id="title">
+                    <h3>
+                        <?php echo $row['title']; ?>
+                    </h3>
+                </section>
+            
+                <section id="container-author-date">
+                    <label>Autor: <?php echo $row['author']; ?></label>
+                    <div style="display: flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                            <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                            <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                        </svg>
+                        <label style="margin-left: 10px;"><?php echo $row['date']; ?></label>
+                    </div>
+                </section>
+            
+                <section id="container-photo">
+                    <div id="photo">
+                        <img src="../img/post/<?php echo $row['thumb'] ?>" id="thumb">
+                    </div>
+                </section>
+            
+                <section id="text">
+                    <p style="font-size: 11pt;">
+                        <?php echo $row['post']; ?>
+                    </p>
+                </section>
+                <?php
+                    }
                 }
-            }
-            ?>
+                ?>
+
+            </div>
+
+            <!--Comment ===============================================================================-->            
+            <form action="../admin/function/func-comment.php?func=comment&id=<?php echo $id ?>" method="POST" id="form-comment">
+
+                <h2>Comentar:</h2>
+                <div id="commet-line"></div>
+
+                <?php
+                    $status = isset($_GET['status'])?$_GET['status']:"";
+                
+                    if($status == "comment"){
+                ?>
+
+                <input type="checkbox" id="warning-check">
+                <div id="comment-ok">
+                    <label for="warning-check">
+                        Comentario enviado com sucesso! <strong>Fechar</strong>
+                    </label>
+                </div>
+
+                <?php
+                    }
+                ?>
+
+                <input type="text" name="name" placeholder="Nome:" id="input">
+
+                <textarea name="comment" placeholder="Comentario:" maxlength="500"></textarea>
+
+                <input type="submit" value="Enviar" class="butam">
+            </form>
+            
+            <div class="container-comment">
+                
+                <h2 style="margin-top: 20px;">Comentários:</h2>
+                <div id="commet-line"></div>
+
+                <?php
+
+                    $select = "SELECT * FROM comment WHERE id_post = $id";
+                    $query = mysqli_query($conn, $select);
+
+                    if($query -> num_rows > 0){
+                        while($comment = $query -> fetch_assoc()){
+                ?>
+
+                <div class="box-comment">
+
+                    <div class="name-comment">
+                        <p>
+                            <?php echo $comment['name'] ?>
+                        </p>
+                    </div>
+
+                    <div class="text-comment">
+                        <p>
+                        <?php echo $comment['comment'] ?>
+                        </p>
+                    </div>
+
+                </div>
+
+                <?php
+                        }
+                    }
+                ?>
+
+            </div>
+            <!--Comment ===============================================================================-->
 
         </article>
         <!--Contet ====================================================================================-->

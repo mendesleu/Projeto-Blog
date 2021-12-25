@@ -233,7 +233,6 @@ main{
     width: 150px;
 }
 
-
 aside{
     width: 350px;
     display: flex;
@@ -309,6 +308,10 @@ aside{
 
     main{
         margin-bottom: 100px;
+    }
+
+    #container-content{
+        width: 414px;
     }
 
     footer{
