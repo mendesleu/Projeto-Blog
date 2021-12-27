@@ -75,7 +75,7 @@
                 <!--Box-Info While ====================================================================-->
                 <?php
 
-                    $select = "SELECT * FROM posts";
+                    $select = "SELECT * FROM posts ORDER BY id DESC";
                     $query = mysqli_query($conn, $select);
 
                     if($query == true){
